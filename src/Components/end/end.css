@@ -1,0 +1,29 @@
+.end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #9200ff, #007788);
+}
+
+.end h3 {
+  margin-bottom: 1.4em;
+  color: white;
+}
+
+.end button {
+  background: linear-gradient(to bottom right, #ed4d4d, #ffa500);
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 50px;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+}
