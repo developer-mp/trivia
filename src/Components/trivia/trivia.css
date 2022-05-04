@@ -29,11 +29,11 @@
 }
 
 .trivia h3 {
-  width: 40%;
+  width: 64%;
   background-color: #d4d4d4;
-  border: 2px solid white;
+  border: 0.1em solid white;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 0.5em;
   padding: 1.5em;
   font-size: 1rem;
   margin-bottom: 1.5em;
@@ -52,8 +52,8 @@
   padding: 1em;
   text-align: center;
   background-color: #d4d4d4;
-  border: 1px solid white;
-  border-radius: 10px;
+  border: 0.1em solid white;
+  border-radius: 0.5em;
   margin: 1em 1.5em;
   cursor: pointer;
   box-sizing: border-box;
@@ -68,8 +68,8 @@ div.correct {
   padding: 1em;
   text-align: center;
   background-color: green;
-  border: 1px solid white;
-  border-radius: 10px;
+  border: 0.1em solid white;
+  border-radius: 0.5em;
   margin: 1em 1.5em;
   cursor: pointer;
   box-sizing: border-box;
@@ -81,8 +81,8 @@ div.wrong {
   padding: 1em;
   text-align: center;
   background-color: red;
-  border: 1px solid white;
-  border-radius: 10px;
+  border: 0.1em solid white;
+  border-radius: 0.5em;
   margin: 1em 1.5em;
   cursor: pointer;
   box-sizing: border-box;
@@ -120,5 +120,23 @@ div.wrong {
   62%,
   100% {
     background: red;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .trivia h3 {
+    width: 55%;
+  }
+
+  div.correct {
+    width: 100%;
+  }
+
+  div.wrong {
+    width: 100%;
+  }
+
+  .trivia-answer {
+    width: 100%;
   }
 }

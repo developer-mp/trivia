@@ -1,0 +1,52 @@
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #9200ff, #007788);
+}
+
+.leaderboard h2 {
+  margin-bottom: 1.5em;
+  color: white;
+}
+
+.leaderboard button {
+  background: linear-gradient(to bottom right, #ed4d4d, #ffa500);
+  border: 0;
+  border-radius: 0.5em;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 3em;
+  width: 7em;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 2em;
+}
+
+table {
+  border-spacing: 0;
+  table-layout: fixed;
+  margin-bottom: 3em;
+}
+
+th,
+td {
+  padding: 1em 2em;
+  color: white;
+  vertical-align: middle;
+}
+
+th {
+  border-bottom: solid 0.01em;
+}
+
+tr {
+  text-align: center;
+  vertical-align: middle;
+}

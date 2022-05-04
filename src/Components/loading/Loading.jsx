@@ -1,5 +1,7 @@
-import './loading.css'
+import "./loading.css";
 
-export default function Loading() {
-  return <div className="loading">GAME IS LOADING</div>
-}
+const Loading = () => {
+  return <div className="loading">GAME IS LOADING</div>;
+};
+
+export default Loading;

@@ -1,17 +1,20 @@
-import { useSelector } from "react-redux";
 import Start from "./Components/start/Start";
 import Trivia from "./Components/trivia/Trivia";
-import End from "./Components/end/End";
+import Result from "./Components/result/Result";
+import Leaderboard from "./Components/leaderboard/Leaderboard";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 
-export default function App() {
-  const questions = useSelector((state) => state.questions);
-  const index = useSelector((state) => state.index);
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route exact path="/" element={<Start />} />
+        <Route exact path="/trivia" element={<Trivia />} />
+        <Route exact path="/result" element={<Result />} />
+        <Route exact path="/leaderboard" element={<Leaderboard />} />
+      </Routes>
+    </Router>
+  );
+};
 
-  if (!questions.length) {
-    return <Start />;
-  } else if (questions.length && index + 1 <= questions.length) {
-    return <Trivia />;
-  } else {
-    return <End />;
-  }
-}
+export default App;

@@ -1,24 +1,23 @@
-import './trivia.css'
-import { useState, useEffect } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import Loading from '../loading/Loading'
+import "./trivia.css";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import Result from "../result/Result";
 
 const decodeHTML = function (html) {
-  const txt = document.createElement('textarea')
-  txt.innerHTML = html
-  return txt.value
-}
+  const txt = document.createElement("textarea");
+  txt.innerHTML = html;
+  return txt.value;
+};
 
-export default function Trivia() {
-  const [questions, setQuestions] = useState([])
-  const [selectedAnswer, setSelectedAnswer] = useState('')
-  const [choices, setChoices] = useState([])
-  const score = useSelector((state) => state.score)
-  const username = useSelector((state) => state.username)
-  const encodedQuestions = useSelector((state) => state.questions)
-  const index = useSelector((state) => state.index)
-
-  const dispatch = useDispatch()
+const Trivia = () => {
+  const [questions, setQuestions] = useState([]);
+  const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [choices, setChoices] = useState([]);
+  const score = useSelector((state) => state.score);
+  const username = useSelector((state) => state.username);
+  const encodedQuestions = useSelector((state) => state.questions);
+  const index = useSelector((state) => state.index);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const decodedQuestions = encodedQuestions.map((q) => {
@@ -27,62 +26,61 @@ export default function Trivia() {
         question: decodeHTML(q.question),
         correct_answer: decodeHTML(q.correct_answer),
         incorrect_answers: q.incorrect_answers.map((a) => decodeHTML(a)),
-      }
-    })
+      };
+    });
 
-    setQuestions(decodedQuestions)
-  }, [encodedQuestions])
+    setQuestions(decodedQuestions);
+  }, [encodedQuestions]);
 
-  const question = questions[index]
-  const answer = question && question.correct_answer
+  const question = questions[index];
+  const answer = question && question.correct_answer;
 
   useEffect(() => {
     if (!question) {
-      return
+      return;
     }
-    let options = [...question.incorrect_answers, question.correct_answer]
-    let optionsShuffled = options.sort(() => Math.random() - 0.5)
-
-    setChoices(optionsShuffled)
-  }, [question])
+    let options = [...question.incorrect_answers, question.correct_answer];
+    let optionsShuffled = options.sort(() => Math.random() - 0.5);
+    setChoices(optionsShuffled);
+  }, [question]);
 
   const handleAnswer = (e) => {
-    setSelectedAnswer(e.target.textContent)
+    setSelectedAnswer(e.target.textContent);
 
     if (e.target.textContent === answer) {
       setTimeout(() => {
         dispatch({
-          type: 'SCORE',
+          type: "SCORE",
           score: score + 1,
-        })
-      }, 2000)
+        });
+      }, 2000);
     }
 
     if (index <= questions.length) {
       setTimeout(() => {
-        setSelectedAnswer(null)
+        setSelectedAnswer(null);
 
         dispatch({
-          type: 'INDEX',
+          type: "INDEX",
           index: index + 1,
-        })
-      }, 3000)
+        });
+      }, 3000);
     }
-  }
+  };
 
   const getAnswerClass = (a) => {
     if (a === selectedAnswer && a === answer) {
-      return `correct`
+      return `correct`;
     }
 
     if (a === selectedAnswer && a !== answer) {
-      return `wrong`
+      return `wrong`;
     } else {
-      return `trivia-answer`
+      return `trivia-answer`;
     }
-  }
+  };
 
-  if (question) {
+  if (questions.length && index + 1 <= questions.length) {
     return (
       <div className="trivia">
         <div className="trivia-profile">
@@ -103,7 +101,9 @@ export default function Trivia() {
           </div>
         </div>
       </div>
-    )
+    );
   }
-  return <Loading />
-}
+  return <Result />;
+};
+
+export default Trivia;
