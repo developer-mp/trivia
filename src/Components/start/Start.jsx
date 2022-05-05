@@ -57,7 +57,7 @@ const Start = () => {
   };
 
   const getQuestions = async () => {
-    let API_QUESTIONS = `https://opentdb.com/api.php?amount=1&category=${category}&difficulty=${difficulty}&type=multiple`;
+    let API_QUESTIONS = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`;
     await axios.get(API_QUESTIONS).then((res) => {
       handleQuestions(res.data.results);
       navigate("/trivia");
