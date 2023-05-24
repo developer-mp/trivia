@@ -65,7 +65,6 @@ const Leaderboard = () => {
         <thead>
           <tr>
             <th>User</th>
-            {/* <th>Category</th> */}
             <th>Difficulty</th>
             <th>Score</th>
           </tr>
@@ -74,7 +73,6 @@ const Leaderboard = () => {
           {leaderboardData.map((user) => (
             <tr key={user.id}>
               <td>{user.username}</td>
-              {/* <td>{user.category}</td> */}
               <td>{user.difficulty}</td>
               <td>{user.score}</td>
             </tr>

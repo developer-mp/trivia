@@ -1,7 +1,7 @@
-import Start from "./Components/start/Start";
-import Trivia from "./Components/trivia/Trivia";
-import Result from "./Components/result/Result";
-import Leaderboard from "./Components/leaderboard/Leaderboard";
+import Start from "./Pages/start/Start";
+import Trivia from "./Pages/trivia/Trivia";
+import Result from "./Pages/trivia/Trivia";
+import Leaderboard from "./Pages/leaderboard/Leaderboard";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 
 const App = () => {

@@ -1,7 +1,7 @@
 import "./start.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import Loading from "../loading/Loading";
+import Loading from "../../Components/loading/Loading";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 

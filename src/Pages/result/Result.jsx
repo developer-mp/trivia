@@ -8,7 +8,6 @@ const Result = () => {
   const score = useSelector((state) => state.score);
   const username = useSelector((state) => state.username);
   const difficulty = useSelector((state) => state.options.difficulty);
-  // const category = useSelector((state) => state.options.category);
   const dbRef = collection(db, "leaderboard");
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -29,7 +28,6 @@ const Result = () => {
       username: username,
       score: score,
       difficulty: difficulty,
-      // category: category,
     }).then(() => {
       navigate("/leaderboard");
     });
